@@ -6,7 +6,7 @@ public class TaxCalculator : MonoBehaviour
 {
     // Constant rate for the Medicare Levy
     const double MEDICARE_LEVY = 0.02;
-
+    public Dropdown Time;
     public enum Timeperiod
     {
         daily,
@@ -15,7 +15,7 @@ public class TaxCalculator : MonoBehaviour
         yearly,
         
     }
-
+    
     // Variables
     bool textToSpeechEnabled = true;
 
