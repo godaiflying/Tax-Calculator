@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using SpeechLib;
 
 public class TaxCalculator : MonoBehaviour
@@ -17,6 +18,8 @@ public class TaxCalculator : MonoBehaviour
 
     // Variables
     bool textToSpeechEnabled = true;
+
+    
 
     private void Start()
     {
