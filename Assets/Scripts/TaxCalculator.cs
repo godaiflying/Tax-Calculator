@@ -64,7 +64,7 @@ public class TaxCalculator : MonoBehaviour
         }
         else
         {
-            return 0;
+            return 42069.10032901944;
         }
 
     }
@@ -117,7 +117,11 @@ public class TaxCalculator : MonoBehaviour
         {
             return grossYearlySalary - (grossYearlySalary * 0.45);
         }
-        return 0;
+        else
+        {
+            return 0;
+        }
+        
 
     }
 
