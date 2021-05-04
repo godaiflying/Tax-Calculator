@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using UnityEngine.UI;
 using SpeechLib;
 
@@ -79,6 +80,7 @@ public class TaxCalculator : MonoBehaviour
 
     private double CalculateGrossYearlySalary(double grossSalaryInput, int salaryPayPeriod)
     {
+        Console.WriteLine(salaryPayPeriod);
         return grossSalaryInput * salaryPayPeriod;
     }
 
