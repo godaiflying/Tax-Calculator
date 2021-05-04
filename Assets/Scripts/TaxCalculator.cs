@@ -31,12 +31,7 @@ public class TaxCalculator : MonoBehaviour
         Speak("Text to speech enabled");
     }
 
-    
 
-    private void Start()
-    {
-        
-    }
 
     // Run this function on the click event of your 'Calculate' button
     public void Calculate()
@@ -52,7 +47,7 @@ public class TaxCalculator : MonoBehaviour
         // Calculations
         double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
         double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
-
+        
         // Output
         OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome);
     }
@@ -73,14 +68,14 @@ public class TaxCalculator : MonoBehaviour
     private int GetSalaryPayPeriod()
     {
         // Get from user. E.g. combobox or radio buttons
-        int timeperiod = TimePeriodDropdown.value;
-        return timeperiod;
+        Timeperiod timeperiod = (Timeperiod)TimePeriodDropdown.value;
+        return (int)timeperiod;
 
     }
 
     private double CalculateGrossYearlySalary(double grossSalaryInput, int salaryPayPeriod)
     {
-        Console.WriteLine(salaryPayPeriod);
+        
         return grossSalaryInput * salaryPayPeriod;
     }
 
