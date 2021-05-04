@@ -27,13 +27,14 @@ public class TaxCalculator : MonoBehaviour
     public void Texttospeech()
     {
         textToSpeechEnabled = ToggleTextTospeech.isOn;
+        Speak("Text to speech enabled");
     }
 
     
 
     private void Start()
     {
-        Speak("Welcome to the A.T.O. Tax Calculator");
+        
     }
 
     // Run this function on the click event of your 'Calculate' button
