@@ -7,7 +7,11 @@ public class TaxCalculator : MonoBehaviour
     // Constant rate for the Medicare Levy
     const double MEDICARE_LEVY = 0.02;
     public Dropdown TimePeriodDropdown;
-    public InputField GrossSalaryInputField; 
+    public InputField GrossSalaryInputField;
+    public Toggle ToggleTextTospeech; 
+    public Text OutputNetIncome;
+    public Text OutputMedicareLevy;
+    public Text OutputTaxPaid;
     public enum Timeperiod
     {
         yearly = 1,
@@ -17,8 +21,13 @@ public class TaxCalculator : MonoBehaviour
         
     }
     
-    // Variables
-    bool textToSpeechEnabled = true;
+    // Toggleing text to speech
+    bool textToSpeechEnabled = false;
+
+    public void Texttospeech()
+    {
+        textToSpeechEnabled = ToggleTextTospeech.isOn;
+    }
 
     
 
@@ -74,10 +83,7 @@ public class TaxCalculator : MonoBehaviour
 
     private double CalculateNetIncome(double grossYearlySalary, ref double medicareLevyPaid, ref double incomeTaxPaid)
     {
-        // This is a stub, replace with the real calculation and return the result
-        medicareLevyPaid = CalculateMedicareLevy(grossYearlySalary);
-        incomeTaxPaid = CalculateIncomeTax(grossYearlySalary);
-        double netIncome = 33000;        
+        double netIncome = grossYearlySalary - (medicareLevyPaid + incomeTaxPaid);  
         return netIncome;
     }
 
@@ -102,13 +108,13 @@ public class TaxCalculator : MonoBehaviour
         {
             return grossYearlySalary - (grossYearlySalary * 0.325);
         }
-        else if (grossYearlySalary >= 18201 && grossYearlySalary <= 37000)
+        else if (grossYearlySalary >= 87001 && grossYearlySalary <= 180000)
         {
-            return grossYearlySalary - (grossYearlySalary * 0.19);
+            return grossYearlySalary - (grossYearlySalary * 0.37);
         }
-        else if (grossYearlySalary >= 18201 && grossYearlySalary <= 37000)
+        else if (grossYearlySalary >= 180001)
         {
-            return grossYearlySalary - (grossYearlySalary * 0.19);
+            return grossYearlySalary - (grossYearlySalary * 0.45);
         }
         return 0;
 
@@ -117,9 +123,11 @@ public class TaxCalculator : MonoBehaviour
     private void OutputResults(double medicareLevyPaid, double incomeTaxPaid, double netIncome)
     {
         // Output the following to the GUI
-        // "Medicare levy paid: $" + medicareLevyPaid.ToString("F2");
-        // "Income tax paid: $" + incomeTaxPaid.ToString("F2");
-        // "Net income: $" + netIncome.ToString("F2");
+        OutputMedicareLevy.text = "Medicare levy paid: $" + medicareLevyPaid.ToString("F2");
+        
+        OutputTaxPaid.text = "Income tax paid: $" + incomeTaxPaid.ToString("F2");
+         
+        OutputNetIncome.text = "Net income: $" + netIncome.ToString("F2");
     }
 
     // Text to Speech
