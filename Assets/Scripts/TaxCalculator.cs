@@ -75,8 +75,8 @@ public class TaxCalculator : MonoBehaviour
 
     private double CalculateGrossYearlySalary(double grossSalaryInput, int salaryPayPeriod)
     {
-        Console.WriteLine(grossSalaryInput);
-        Console.WriteLine(salaryPayPeriod);
+        print(grossSalaryInput);
+        print(salaryPayPeriod);
         return grossSalaryInput * salaryPayPeriod;
     }
 
