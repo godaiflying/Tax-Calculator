@@ -48,7 +48,8 @@ public class TaxCalculator : MonoBehaviour
         double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
         double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
 
-        print(grossYearlySalary);
+        print(incomeTaxPaid);
+        
         // Output
         OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome);
     }
