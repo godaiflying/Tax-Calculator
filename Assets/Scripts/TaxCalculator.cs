@@ -47,7 +47,8 @@ public class TaxCalculator : MonoBehaviour
         // Calculations
         double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
         double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
-        
+
+        print(grossYearlySalary);
         // Output
         OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome);
     }
@@ -107,6 +108,7 @@ public class TaxCalculator : MonoBehaviour
         else if (grossYearlySalary >= 18201 && grossYearlySalary <= 37000)
         {
             return grossYearlySalary - (grossYearlySalary * 0.19);
+            
         }
         else if (grossYearlySalary >= 37001 && grossYearlySalary <= 87000)
         {
