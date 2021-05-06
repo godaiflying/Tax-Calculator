@@ -62,7 +62,8 @@ public class TaxCalculator : MonoBehaviour
         }
         else
         {
-            return 42069.10032901944;
+            GrossSalaryInputField.enabled = false;
+            return 0;
         }
 
     }
