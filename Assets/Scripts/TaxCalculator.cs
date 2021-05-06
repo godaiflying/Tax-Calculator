@@ -45,8 +45,7 @@ public class TaxCalculator : MonoBehaviour
 
         // Calculations
         double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
-        incomeTaxPaid = CalculateIncomeTax(grossYearlySalary);        
-        medicareLevyPaid = CalculateMedicareLevy(grossYearlySalary);
+
 
         double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
         print(incomeTaxPaid);
@@ -90,6 +89,8 @@ public class TaxCalculator : MonoBehaviour
 
     private double CalculateNetIncome(double grossYearlySalary, ref double medicareLevyPaid, ref double incomeTaxPaid)
     {
+        incomeTaxPaid = CalculateIncomeTax(grossYearlySalary);
+        medicareLevyPaid = CalculateMedicareLevy(grossYearlySalary);
         double netIncome = grossYearlySalary - (medicareLevyPaid + incomeTaxPaid);  
         return netIncome;
     }
