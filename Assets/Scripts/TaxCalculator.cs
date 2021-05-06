@@ -68,8 +68,13 @@ public class TaxCalculator : MonoBehaviour
     private int GetSalaryPayPeriod()
     {
         // Get from user. E.g. combobox or radio buttons
-        Timeperiod timeperiod = (Timeperiod)TimePeriodDropdown.value;
-        return (int)timeperiod;
+        int timeperiod = TimePeriodDropdown.value;
+        if(timeperiod == 0) { return 1; }
+        if (timeperiod == 1) { return 12; }
+        if (timeperiod == 2) { return 26; }
+        if (timeperiod == 3) { return 52; }
+
+        return 0;
 
     }
 
