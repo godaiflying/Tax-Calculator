@@ -46,7 +46,7 @@ public class TaxCalculator : MonoBehaviour
         double grossSalaryInput = GetGrossSalary();
         int salaryPayPeriod = GetSalaryPayPeriod();
 
-        if (grossSalaryInput < 0)
+        if (grossSalaryInput > 0)
         {
             double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
 
