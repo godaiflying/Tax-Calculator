@@ -39,7 +39,6 @@ public class TaxCalculator : MonoBehaviour
         // Initialisation of variables
         double medicareLevyPaid = 0;
         double incomeTaxPaid = 0;
-
         // Input
         double grossSalaryInput = GetGrossSalary();
         int salaryPayPeriod = GetSalaryPayPeriod();
@@ -47,7 +46,8 @@ public class TaxCalculator : MonoBehaviour
         // Calculations
         double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
         double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
-
+        incomeTaxPaid = CalculateIncomeTax(grossYearlySalary);
+        medicareLevyPaid = CalculateMedicareLevy(grossYearlySalary);
         print(incomeTaxPaid);
         
         // Output
@@ -108,12 +108,12 @@ public class TaxCalculator : MonoBehaviour
         }
         else if (grossYearlySalary < 37000)
         {
-            return 3572 + 0.19 * (grossYearlySalary - 18201);
+            return  0.19 * (grossYearlySalary - 18201);
             
         }
         else if (grossYearlySalary < 87000)
         {
-            return 0.325 * (grossYearlySalary - 37001 );
+            return 3572 + 0.325 * (grossYearlySalary - 37001 );
         }
         else if (grossYearlySalary < 180000)
         {
@@ -127,7 +127,6 @@ public class TaxCalculator : MonoBehaviour
         {
             return 0;
         }
-        
 
     }
 
