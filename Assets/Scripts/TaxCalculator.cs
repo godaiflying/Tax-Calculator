@@ -109,7 +109,7 @@ public class TaxCalculator : MonoBehaviour
 
     private double CalculateIncomeTax(double grossYearlySalary)
     {
-        if(grossYearlySalary >= 0 &&grossYearlySalary < 18000)
+        if(grossYearlySalary == -1 &&grossYearlySalary < 18000)
         {
             return 0.00;
         }
