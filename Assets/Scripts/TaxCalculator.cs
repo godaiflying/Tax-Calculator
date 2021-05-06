@@ -13,6 +13,7 @@ public class TaxCalculator : MonoBehaviour
     public Text OutputNetIncome;
     public Text OutputMedicareLevy;
     public Text OutputTaxPaid;
+    public Text Error; 
     public enum Timeperiod
     {
         yearly = 1,
@@ -21,7 +22,9 @@ public class TaxCalculator : MonoBehaviour
         weekly = 52,
         
     }
-    
+
+
+
     // Toggleing text to speech
     bool textToSpeechEnabled = false;
 
@@ -62,6 +65,7 @@ public class TaxCalculator : MonoBehaviour
         }
         else
         {
+            GrossSalaryInputField.text = "ERROROROROOROROOROOROROOROROOROR";
             GrossSalaryInputField.enabled = false;
             return 0;
         }
