@@ -46,16 +46,15 @@ public class TaxCalculator : MonoBehaviour
         double grossSalaryInput = GetGrossSalary();
         int salaryPayPeriod = GetSalaryPayPeriod();
 
-        if (grossSalaryInput > 0)
-        {
-            double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
+       
+        double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
 
 
-            double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
-            print(incomeTaxPaid);
+        double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
+        print(incomeTaxPaid);
 
-            OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome);
-        }
+        OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome);
+        
         // Calculations
 
         // Output
@@ -66,7 +65,18 @@ public class TaxCalculator : MonoBehaviour
     {
         if (double.TryParse(GrossSalaryInputField.text, out double grosssalaryinput) )
         {
-            return grosssalaryinput;
+            if (grosssalaryinput > 0)
+            {
+                return grosssalaryinput;
+            }
+            else
+            {
+                GrossSalaryInputField.text = "ERROROROROOROROOROOROROOROROOROR";
+                GrossSalaryInputField.enabled = false;
+                return 0;
+                
+            }
+            
         }
         
         else
