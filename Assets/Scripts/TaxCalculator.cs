@@ -28,16 +28,19 @@ public class TaxCalculator : MonoBehaviour
 
 
     // Toggleing text to speech
-    bool textToSpeechEnabled = false;
+    
     public void Start()
     {
-        Texttospeech();
+        bool textToSpeechEnabled = ToggleTextTospeech.isOn;
+        
+        if (textToSpeechEnabled == true)
+        {
+            Speak("Text to speech enabled");
+        }
+        
+
     }
-    public void Texttospeech()
-    {
-        textToSpeechEnabled = ToggleTextTospeech.isOn;
-        Speak("Text to speech enabled");
-    }
+    
 
 
     // Run this function on the click event of your 'Calculate' button
