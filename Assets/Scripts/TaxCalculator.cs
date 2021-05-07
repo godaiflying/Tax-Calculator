@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System;
+using System.Globalization;
+using System.Collections;
 using UnityEngine.UI;
 using SpeechLib;
 
@@ -13,7 +15,7 @@ public class TaxCalculator : MonoBehaviour
     public Text OutputNetIncome;
     public Text OutputMedicareLevy;
     public Text OutputTaxPaid;
-    public Text Error; 
+    public Text Error;
     public enum Timeperiod
     {
         yearly = 1,
@@ -27,13 +29,15 @@ public class TaxCalculator : MonoBehaviour
 
     // Toggleing text to speech
     bool textToSpeechEnabled = false;
-
+    public void Start()
+    {
+        Texttospeech();
+    }
     public void Texttospeech()
     {
         textToSpeechEnabled = ToggleTextTospeech.isOn;
         Speak("Text to speech enabled");
     }
-
 
 
     // Run this function on the click event of your 'Calculate' button
