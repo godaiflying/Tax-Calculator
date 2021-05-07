@@ -1724,7 +1724,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 961489569}
-        m_MethodName: Calculate
+        m_MethodName: toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1789,6 +1789,7 @@ MonoBehaviour:
   OutputNetIncome: {fileID: 511493182}
   OutputMedicareLevy: {fileID: 14326302}
   OutputTaxPaid: {fileID: 414457235}
+  Error: {fileID: 0}
 --- !u!1 &1017001191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,8 +2586,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Texttospeech
+      - m_Target: {fileID: 961489569}
+        m_MethodName: toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2596,4 +2597,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
