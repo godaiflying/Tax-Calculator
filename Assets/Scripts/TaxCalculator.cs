@@ -37,6 +37,11 @@ public class TaxCalculator : MonoBehaviour
         if (textToSpeechEnabled == true)
         {
             Speak("Text to speech enabled");
+            Speak(GrossSalaryInputField.text);
+            Speak(OutputNetIncome.text);
+            Speak(OutputMedicareLevy.text);
+            Speak(OutputTaxPaid.text);
+            
         }
 
 
