@@ -64,7 +64,7 @@ public class TaxCalculator : MonoBehaviour
         double grossYearlySalary = CalculateGrossYearlySalary(grossSalaryInput, salaryPayPeriod);
 
 
-        double netIncome = CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid);
+        double netIncome = Math.Round(CalculateNetIncome(grossYearlySalary, ref medicareLevyPaid, ref incomeTaxPaid));
         print(incomeTaxPaid);
 
         OutputResults(medicareLevyPaid, incomeTaxPaid, netIncome);
@@ -124,7 +124,7 @@ public class TaxCalculator : MonoBehaviour
 
     private double CalculateNetIncome(double grossYearlySalary, ref double medicareLevyPaid, ref double incomeTaxPaid)
     {
-        incomeTaxPaid = CalculateIncomeTax(grossYearlySalary);
+        incomeTaxPaid = Math.Round(CalculateIncomeTax(grossYearlySalary));
         medicareLevyPaid = CalculateMedicareLevy(grossYearlySalary);
         double netIncome = grossYearlySalary - (medicareLevyPaid + incomeTaxPaid);  
         return netIncome;
@@ -134,7 +134,7 @@ public class TaxCalculator : MonoBehaviour
     {  
 
         double medicareLevyPaid = grossYearlySalary * MEDICARE_LEVY;        
-        return medicareLevyPaid;
+        return Math.Round(medicareLevyPaid);
     }
 
     private double CalculateIncomeTax(double grossYearlySalary)
