@@ -156,7 +156,7 @@ public class TaxCalculator : MonoBehaviour
         {
             return 19822 + 0.37 * (grossYearlySalary - 87001);
         }
-        else if (grossYearlySalary < 180001)
+        else if (grossYearlySalary > 180001)
         {
             return 54232 + 0.45 * (grossYearlySalary - 180000);
         }
